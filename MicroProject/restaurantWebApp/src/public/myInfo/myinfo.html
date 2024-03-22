@@ -1,0 +1,61 @@
+<div class="container">
+
+    <div class="row text-center col-sm-12 col-md-12" ng-if="!myInfoCtrl.registered">
+
+        <h2> Not Signed Up Yet   </h2>
+        <div style="margin-top:30px">
+            <a ui-sref="public.signUp"><button type="button" class="btn btn-primary btn-lg">SignUp Now</button></a>
+        </div>
+
+    </div>
+
+
+    <div ng-if="myInfoCtrl.registered ">
+
+        <h2>Your Details </h2>
+
+        <div class="col-sm-12 col-md-12" style="margin-top:40px;margin-left:100px">
+            <h4>
+          <label>Name:</label>
+        <span style="margin-left: 20px ; font-size:1.2em"> {{myInfoCtrl.user.firstname}} {{myInfoCtrl.user.lastname}} </span>
+        </h4>
+        </div>
+        <div class="col-sm-12 col-md-12" style="margin-left:100px">
+            <h4><label>Email:</label>
+        <span style="margin-left: 20px ; font-size:1.2em"> {{myInfoCtrl.user.email}} </span>
+        </h4>
+        </div>
+        <div class="col-sm-12 col-md-12" style="margin-left:100px ; margin-bottom:20px">
+            <h4><label>Phone No</label>
+        <span style="margin-left: 20px ; font-size:1.2em"> {{myInfoCtrl.user.phone}} </span>
+        </h4>
+        </div>
+
+        <div class="row" style="margin-left:115px">
+            <h3><label>Favorite Dish</label> </h3>
+        </div>
+
+        <div class="menu-item-tile col-md-6" style="margin-left:150px ; margin-top:35px">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="menu-item-photo">
+                        <div>{{myInfoCtrl.user.favDish.short_name}}</div>
+                        <img class="img-responsive" width="250" height="150" ng-src="https://ruby-server.herokuapp.com/images/{{myInfoCtrl.user.favDish.short_name}}.jpg" alt="{{$ctrl.menuItem.name}}">
+                    </div>
+                    <div class="menu-item-price">{{myInfoCtrl.user.favDish.price_small | currency}}<span> {{myInfoCtrl.user.favDish.small_portion_name}}</span> {{myInfoCtrl.user.favDish.price_large | currency}} <span>{{myInfoCtrl.user.favDish.large_portion_name}}</span></div>
+                </div>
+                <div class="menu-item-description col-sm-7">
+                    <h3 class="menu-item-title">{{myInfoCtrl.user.favDish.name}}</h3>
+                    <p class="menu-item-details">{{myInfoCtrl.user.favDish.description}}</p>
+                </div>
+            </div>
+            <hr class="visible-xs">
+        </div>
+
+
+    </div>
+
+
+
+
+</div>
